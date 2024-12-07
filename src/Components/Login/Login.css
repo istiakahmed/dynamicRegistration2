@@ -1,0 +1,18 @@
+.logIn-Istiak{
+    @apply flex flex-col justify-center font-[sans-serif] sm:h-screen p-4
+}
+.logInData-Istiak{
+    @apply max-w-md w-full mx-auto bg-[#7E60BF] border border-gray-300 rounded-2xl p-8 shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]
+}
+.log-content{
+    @apply space-y-6
+}
+.socialLink{
+    @apply flex justify-center gap-5 w-full
+}
+.btnOne{
+    @apply w-full flex items-center justify-center mb-6 md:mb-0 border border-gray-300 hover:border-gray-900 hover:bg-gray-900 text-sm text-gray-500 p-3 rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-500
+}
+.btnTwo{
+    @apply w-full flex items-center justify-center mb-6 md:mb-0 border border-gray-300 hover:border-gray-900 hover:bg-gray-900 text-sm text-gray-500 p-3 rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-500
+}

@@ -6,6 +6,7 @@ import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateP
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce, toast } from 'react-toastify';
 import { GiConsoleController } from 'react-icons/gi';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Register = () => {
@@ -13,6 +14,9 @@ const Register = () => {
      const [show, setShow] = useState(false)
      const [fromData, setFormData] = useState({userName:'', email:'', password:''})
      const [error, setError] = useState({userNameError:'', emailError:'', passError:''})
+
+    //  ========== Redirecting from one page to another
+    const navigate = useNavigate()
 
     //  ========== firebase variables
     const auth = getAuth();
@@ -49,6 +53,9 @@ const Register = () => {
               // ========= sending verification email
               sendEmailVerification(auth.currentUser)
               .then(() => {
+                // =============== Navigate to login page
+                navigate('/login')
+                
                 toast.info('Email varify first!', {
                   position: "top-right",
                   autoClose: 5000,
@@ -175,14 +182,14 @@ const Register = () => {
 
           <div className="!mt-12">
            
-            <button onClick={handleSubmit} type='button' className="w-full bg-red-300 hover:bg-red-500 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:text-white shadow-white ">
+            <button onClick={handleSubmit} type='button' className="w-full bg-red-300 hover:bg-red-500 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:text-white shadow-white transition ease-in duration-500 ">
             Register </button>
             {/* <button onClick={handleSubmit} type="button" className="w-full py-3 px-4 text-sm tracking-wider font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
               Create an account
             </button> */}
 
           </div>
-          <p className="text-gray-800 text-sm mt-6 text-center">Already have an account? <a href="javascript:void(0);" className="text-blue-600 font-semibold hover:underline ml-1">Login here</a></p>
+          <p className="text-gray-800 text-sm mt-6 text-center">Already have an account? <Link to={'/login'} className="text-blue-600 font-semibold hover:underline ml-1">Login here</Link></p>
         </form>
       </div>
     </div>
